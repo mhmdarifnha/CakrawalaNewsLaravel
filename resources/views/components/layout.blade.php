@@ -102,7 +102,7 @@
 
 
     <!-- Konten Utama -->
-    <div class="container mx-auto mt-4 bg-blue-50 p-4 rounded-md min-h-dvh flex flex-col justify-center">
+    <div class="container mx-auto mt-4 bg-blue-50 p-4 rounded-md min-h-dvh flex flex-col">
         {{ $slot }}
     </div>
 

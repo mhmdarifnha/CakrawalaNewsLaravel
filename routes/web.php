@@ -1,14 +1,20 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Models\Post;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
-    return view('home', ['title' => 'Home page']);
+    return view('home', ['title' => 'Home page', 'posts' => Post::all()]);
 });
 
 Route::get('/article', function () {
-    return view('article', ['title' => 'Article page']);
+    return view('article', ['title' => 'Article page', 'posts' => Post::all()]);
+});
+
+Route::get('/article/{post:slug}', function (Post $post) {
+    return view('single-article', ['title' => 'Single Article', 'post' => $post]);
 });
 
 Route::get('/video', function () {
@@ -16,7 +22,10 @@ Route::get('/video', function () {
 });
 
 Route::get('/about', function () {
-    return view('about', ['name' => 'Arif', 'title' => 'About page']);
+    return view('about', [
+        'name' => 'Arif',
+        'title' => 'About page'
+    ]);
 });
 
 Route::get('/dashboard', function () {
