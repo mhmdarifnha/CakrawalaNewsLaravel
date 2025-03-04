@@ -1,8 +1,11 @@
 <x-layout>
+    <x-slot:title>{{ $title }}</x-slot:title>
     <article class="pb-4 mb-4 w-full">
         <h2 class="text-xl font-bold">{{ $post['title'] }}</h2>
         <div class="flex items-center gap-1 text-sm text-gray-500">
-            <a href="#">{{ $post['author'] }}</a> | <p>Diposting pada: {{ $post->created_at->diffForHumans() }}
+            <a href="/authors/{{ $post->author->id }}"
+                class="hover:underline transition-all duration-150">{{  $post->author->name }}</a> | <p>Diposting pada:
+                {{ $post->created_at->diffForHumans() }}
             </p>
         </div>
         <p class="my-4 text-base">{{ $post['body'] }}</p>

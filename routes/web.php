@@ -4,6 +4,7 @@ use App\Models\Post;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
 
 Route::get('/', function () {
     return view('home', ['title' => 'Home page', 'posts' => Post::all()]);
@@ -15,6 +16,11 @@ Route::get('/article', function () {
 
 Route::get('/article/{post:slug}', function (Post $post) {
     return view('single-article', ['title' => 'Single Article', 'post' => $post]);
+});
+
+Route::get('/authors/{user}', function (User $user) {
+    // 'Article by' . $user->name
+    return view('article', ['title' => 'Article by ' . $user->name, 'posts' => $user->posts]);
 });
 
 Route::get('/video', function () {

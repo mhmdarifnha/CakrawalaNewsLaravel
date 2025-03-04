@@ -1,6 +1,6 @@
 <x-layout>
+    <x-slot:title>{{ $title }}</x-slot:title>
     <main>
-        <h1>Berita terbaru</h1>
         {{-- News --}}
         {{-- <div class="h-32 w-full bg-slate-200 border-gray-500 p-2">
             <h3>judul berita</h3>
@@ -14,7 +14,10 @@
                 <a href="/article/{{ $post['slug'] }}"
                     class="w-fit text-xl font-bold hover:underline">{{ $post['title'] }}</a>
                 <div class="flex items-center gap-1 text-sm text-gray-500">
-                    <a href="#">{{ $post['author'] }}</a> | <p>Diposting pada: {{ $post->created_at->diffForHumans() }}
+                    <a href="/authors/{{ $post->author->id }}"
+                        class="hover:underline transition-all duration-150">{{ $post->author->name }}</a> | <p>
+                        Diposting pada:
+                        {{ $post->created_at->diffForHumans() }}
                     </p>
                 </div>
                 <p class="my-4 text-base">{{ Str::limit($post['body'], 100) }}</p>

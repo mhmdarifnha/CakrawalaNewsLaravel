@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Post extends Model
 {
@@ -12,4 +13,9 @@ class Post extends Model
     protected $table = 'articles';
     protected $fillable = ['title', 'author', 'slug', 'body'];
     protected $guarded = [];
+
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

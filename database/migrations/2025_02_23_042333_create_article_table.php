@@ -13,7 +13,10 @@ return new class extends Migration {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('author');
+            $table->foreignId('author_id')->constrained(
+                table: 'users',
+                indexName: 'articles_author_id'
+            );
             $table->string('slug')->unique();
             $table->text('body');
             $table->timestamps();
