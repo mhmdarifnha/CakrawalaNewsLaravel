@@ -4,6 +4,7 @@ use App\Models\Post;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Models\Category;
 use App\Models\User;
 
 Route::get('/', function () {
@@ -19,8 +20,11 @@ Route::get('/article/{post:slug}', function (Post $post) {
 });
 
 Route::get('/authors/{user}', function (User $user) {
-    // 'Article by' . $user->name
     return view('article', ['title' => 'Article by ' . $user->name, 'posts' => $user->posts]);
+});
+
+Route::get('/categories/{category}', function (Category $category) {
+    return view('article', ['title' => 'Category ' . $category->category, 'posts' => $category->categories]);
 });
 
 Route::get('/video', function () {
