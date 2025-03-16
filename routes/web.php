@@ -8,9 +8,7 @@ use App\Models\Category;
 use App\Models\User;
 
 Route::get('/', function () {
-    // $posts = Post::with('author')->latest()->get();
-    $posts = Post::latest()->get();
-    return view('home', ['title' => 'Home page', 'posts' => $posts]);
+    return view('home', ['title' => 'Home page']);
 });
 
 Route::get('/article', function () {
