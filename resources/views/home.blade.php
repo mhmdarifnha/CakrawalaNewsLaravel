@@ -14,11 +14,11 @@
                 <a href="/article/{{ $post['slug'] }}"
                     class="w-fit text-xl font-bold hover:underline">{{ $post['title'] }}</a>
                 <div class="flex items-center gap-1 text-sm text-gray-500">
-                    <a href="/authors/{{ $post->author->id }}" class="hover:underline transition-all duration-150">
+                    <a href="/authors/{{ $post->author->username }}" class="hover:underline transition-all duration-150">
                         {{ $post->author->name }}
-                    </a> | <a href="/categories/{{ $post->category->id }}"
+                    </a> | <a href="/categories/{{ $post->category->slug }}"
                         class="hover:underline transition-all duration-150">
-                        Kategori: {{ $post->category->category }}
+                        Kategori: {{ $post->category->name }}
                     </a> | <p>Diposting pada:
                         {{ $post->created_at->diffForHumans() }}
                     </p>

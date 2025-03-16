@@ -19,12 +19,12 @@ Route::get('/article/{post:slug}', function (Post $post) {
     return view('single-article', ['title' => 'Single Article', 'post' => $post]);
 });
 
-Route::get('/authors/{user}', function (User $user) {
-    return view('article', ['title' => 'Article by ' . $user->name, 'posts' => $user->posts]);
+Route::get('/authors/{user:username}', function (User $user) {
+    return view('article', ['title' => count($user->posts) . ' Article by ' . $user->name, 'posts' => $user->posts]);
 });
 
-Route::get('/categories/{category}', function (Category $category) {
-    return view('article', ['title' => 'Category ' . $category->category, 'posts' => $category->categories]);
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return view('article', ['title' => 'Category ' . $category->name, 'posts' => $category->categories]);
 });
 
 Route::get('/video', function () {
