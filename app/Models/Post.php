@@ -13,6 +13,7 @@ class Post extends Model
     protected $table = 'articles';
     protected $fillable = ['title', 'author', 'slug', 'body'];
     protected $guarded = [];
+    protected $with = ['author', 'category'];
 
     public function author(): BelongsTo
     {
