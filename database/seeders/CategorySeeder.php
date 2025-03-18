@@ -15,27 +15,32 @@ class CategorySeeder extends Seeder
     {
         Category::factory()->create([
             'name' => 'Web Development',
-            'slug' => 'web-development'
+            'slug' => 'web-development',
+            'color' => 'blue'
         ]);
 
         Category::factory()->create([
             'name' => 'Korupsi',
-            'slug' => 'korupsi'
+            'slug' => 'korupsi',
+            'color' => 'red'
         ]);
 
         Category::factory()->create([
             'name' => 'Teknologi',
-            'slug' => 'teknologi'
+            'slug' => 'teknologi',
+            'color' => 'indigo'
         ]);
 
         Category::factory()->create([
             'name' => 'Smartphone Gaming',
-            'slug' => 'smartphone-gaming'
+            'slug' => 'smartphone-gaming',
+            'color' => 'green'
         ]);
 
         Category::factory()->create([
             'name' => 'Resep Masakan',
-            'slug' => 'resep-masakan'
+            'slug' => 'resep-masakan',
+            'color' => 'yellow'
         ]);
 
     }

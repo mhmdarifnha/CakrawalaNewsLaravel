@@ -24,7 +24,7 @@
     <!-- Navbar -->
     <header class="flex justify-between px-6 py-5 bg-blue-500 text-white items-center">
         <!-- Logo atau Nama Aplikasi -->
-        <a href="/" class="text-2xl font-bold hover:scale-105 transition-all ease-in-out duration-300">
+        <a href="/" class="text-2xl font-bold hover:text-blue-100 transition-all ease-in-out duration-300">
             {{ config('app.name') }}
         </a>
 
@@ -103,7 +103,7 @@
 
 
     <!-- Konten Utama -->
-    <div class="container mx-auto mt-4 bg-blue-50 p-4 rounded-md min-h-dvh flex flex-col">
+    <div class="container mx-auto md-auto md:mt-4 sm:mt-auto min-h-dvh flex flex-col">
         <h3 class="text-2xl font-bold mb-3">{{ $title ?? "tes" }}</h3>
         {{ $slot }}
     </div>

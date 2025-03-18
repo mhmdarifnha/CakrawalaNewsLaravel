@@ -14,7 +14,7 @@ Route::get('/', function () {
 Route::get('/article', function () {
     // $posts = Post::with(['category', 'author'])->latest()->get();
     $posts = Post::latest()->get();
-    return view('article', ['title' => 'Article page', 'posts' => $posts]);
+    return view('articles', ['title' => 'Article page', 'posts' => $posts]);
 });
 
 Route::get('/article/{post:slug}', function (Post $post) {
@@ -23,12 +23,12 @@ Route::get('/article/{post:slug}', function (Post $post) {
 
 Route::get('/authors/{user:username}', function (User $user) {
     $posts = $user->posts->load('category', 'author');
-    return view('article', ['title' => count($user->posts) . ' Article by ' . $user->name, 'posts' => $user->posts]);
+    return view('articles', ['title' => count($user->posts) . ' Article by ' . $user->name, 'posts' => $user->posts]);
 });
 
 Route::get('/categories/{category:slug}', function (Category $category) {
     // $posts = $category->posts->load('category', 'author');
-    return view('article', ['title' => 'Category ' . $category->name, 'posts' => $category->posts]);
+    return view('articles', ['title' => 'Category ' . $category->name, 'posts' => $category->posts]);
 });
 
 Route::get('/video', function () {
@@ -43,7 +43,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard', ['title' => 'Dashboard']);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

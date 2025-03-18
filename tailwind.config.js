@@ -18,4 +18,5 @@ export default {
     },
 
     plugins: [forms],
+    safelist: ["bg-blue-100", "bg-red-100", "bg-indigo-100", "bg-green-100", "bg-yellow-100", "bg-blue-200", "bg-red-200", "bg-indigo-200", "bg-green-200", "bg-yellow-200"]
 };
