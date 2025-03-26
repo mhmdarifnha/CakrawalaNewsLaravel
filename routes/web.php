@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/article', function () {
-    return view('articles', ['title' => 'Article page', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->get()]);
+    return view('articles', ['title' => 'Article page', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(6)->withQueryString()]);
 });
 
 Route::get('/article/{post:slug}', function (Post $post) {
@@ -19,12 +19,10 @@ Route::get('/article/{post:slug}', function (Post $post) {
 });
 
 Route::get('/authors/{user:username}', function (User $user) {
-    $posts = $user->posts->load('category', 'author');
     return view('articles', ['title' => count($user->posts) . ' Article by ' . $user->name, 'posts' => $user->posts]);
 });
 
 Route::get('/categories/{category:slug}', function (Category $category) {
-    // $posts = $category->posts->load('category', 'author');
     return view('articles', ['title' => 'Category ' . $category->name, 'posts' => $category->posts]);
 });
 
