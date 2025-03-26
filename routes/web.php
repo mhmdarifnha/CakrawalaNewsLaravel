@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Post;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Models\Category;
@@ -12,9 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/article', function () {
-    // $posts = Post::with(['category', 'author'])->latest()->get();
-    $posts = Post::latest()->get();
-    return view('articles', ['title' => 'Article page', 'posts' => $posts]);
+    return view('articles', ['title' => 'Article page', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->get()]);
 });
 
 Route::get('/article/{post:slug}', function (Post $post) {

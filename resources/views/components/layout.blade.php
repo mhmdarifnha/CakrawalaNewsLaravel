@@ -28,6 +28,9 @@
             {{ config('app.name') }}
         </a>
 
+        <!-- Input Search -->
+        {{-- <x-input-search /> --}}
+
         <!-- Menu Navbar -->
         <nav class="flex gap-2 items-center text-lg font-medium space-x-4 md:space-x-6">
             <div class="hidden md:flex gap-2 items-center">
@@ -104,7 +107,7 @@
 
     <!-- Konten Utama -->
     <div class="container mx-auto md-auto md:mt-4 sm:mt-auto min-h-dvh flex flex-col">
-        <h3 class="text-2xl font-bold mb-3">{{ $title ?? "tes" }}</h3>
+        {{-- <h3 class="text-2xl font-bold mb-3">{{ $title ?? "tes" }}</h3> --}}
         {{ $slot }}
     </div>
 

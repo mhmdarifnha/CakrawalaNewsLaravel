@@ -4,10 +4,13 @@
         <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ $post['title'] }}</h2>
 
         <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
-            <a href="/authors/{{ $post->author->username }}"
+            <a href="/article?author={{ $post->author->username }}"
                 class="hover:text-blue-600 font-medium transition-all duration-200">
                 ✍️ {{ $post->author->name }}
             </a>
+            <span class="text-gray-400">•</span>
+            <a href="/article/?category={{ $post->category->slug }}"
+                class="bg-{{ $post->category->color }}-100 text-black text-xs font-medium px-3 py-1 rounded-md hover:bg-{{ $post->category->color }}-200 hover:underline">{{ $post->category->name }}</a>
             <span class="text-gray-400">•</span>
             <p>🕒 {{ $post->created_at->diffForHumans() }}</p>
         </div>
