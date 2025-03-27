@@ -80,8 +80,6 @@
             class="block hover:bg-gray-700 hover:bg-opacity-45 rounded-full px-2 py-1 transition-all ease-in">Beranda</a>
         <a href="/article"
             class="block hover:bg-gray-700 hover:bg-opacity-45 rounded-full px-2 py-1 transition-all ease-in">Artikel</a>
-        <a href="/video"
-            class="block hover:bg-gray-700 hover:bg-opacity-45 rounded-full px-2 py-1 transition-all ease-in">Video</a>
         <a href="/about"
             class="block hover:bg-gray-700 hover:bg-opacity-45 rounded-full px-2 py-1 transition-all ease-in">Tentang</a>
 
@@ -105,14 +103,14 @@
 
     <!-- Konten Utama -->
     <div class="container mx-auto md-auto md:mt-4 sm:mt-auto min-h-dvh flex flex-col">
-        {{-- <h3 class="text-2xl font-bold mb-3">{{ $title ?? "tes" }}</h3> --}}
         {{ $slot }}
     </div>
 
     <!-- Footer -->
     <footer class="bg-blue-500 text-white py-8 mt-16">
         <div class="container mx-auto text-center">
-            <p class="text-lg mb-4">© 2025 Your Website. All rights reserved.</p>
+            <p class="text-lg mb-4">&copy; {{ date('Y') }} CakrawalaNews. Semua Hak Dilindungi.</p>
+            <p class="text-lg mb-4">"CakrawalaNews adalah proyek portofolio dan tidak menampilkan berita nyata."</p>
             <div class="flex justify-center gap-6">
                 <a href="https://instagram.com/mhmdarifnha"
                     class="text-white hover:text-[#E4405F] transition-all duration-150 ease-in-out">

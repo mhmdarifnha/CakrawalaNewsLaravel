@@ -7,7 +7,7 @@ use App\Models\Category;
 use App\Models\User;
 
 Route::get('/', function () {
-    return view('home', ['title' => 'Home page']);
+    return view('home', ['title' => 'Home page', 'posts' => Post::latest()->paginate(3)]);
 });
 
 Route::get('/article', function () {

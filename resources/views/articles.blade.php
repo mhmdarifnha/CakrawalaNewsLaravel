@@ -1,9 +1,11 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
-    <div class="py-2 flex justify-center items-center">
+    <div class="py-2 px-4 flex justify-center items-center">
         <x-input-search />
     </div>
-    {{ $posts->links() }}
+    <div class="px-4">
+        {{ $posts->links() }}
+    </div>
     @if ($posts->isNotEmpty())
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
             @foreach ($posts as $post)
@@ -34,7 +36,9 @@
                 </article>
             @endforeach
         </div>
-        {{ $posts->links() }}
+        <div class="px-4">
+            {{ $posts->links() }}
+        </div>
     @else
         <div class="flex flex-col items-center justify-center min-h-[50vh] text-gray-700">
             <img src="https://cdn-icons-png.flaticon.com/512/2748/2748558.png" alt="Not Found"

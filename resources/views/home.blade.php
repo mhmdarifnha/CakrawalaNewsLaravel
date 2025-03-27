@@ -1,32 +1,23 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
     <main>
-        {{-- News --}}
-        {{-- <div class="h-32 w-full bg-slate-200 border-gray-500 p-2">
-            <h3>judul berita</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam sit voluptatum minus? Officia illum
-                numquam animi maxime dolor necessitatibus est perspiciatis ducimus, molestias non, possimus nobis?
-                Labore doloribus dolores perspiciatis eaque deserunt eos, maiores numquam consectetur molestias ex sint
-                reiciendis doloremque illo impedit beatae laborum iusto architecto sit voluptas ad.</p>
-        </div> --}}
-        {{-- @foreach ($posts as $post)
-        <article class="border-b border-gray-200 pb-4 mb-4 w-full">
-            <a href="/article/{{ $post['slug'] }}" class="w-fit text-xl font-bold hover:underline">{{ $post['title']
-                }}</a>
-            <div class="flex items-center gap-1 text-sm text-gray-500">
-                <a href="/authors/{{ $post->author->username }}" class="hover:underline transition-all duration-150">
-                    {{ $post->author->name }}
-                </a> | <a href="/categories/{{ $post->category->slug }}"
-                    class="hover:underline transition-all duration-150">
-                    Kategori: {{ $post->category->name }}
-                </a> | <p>Diposting pada:
-                    {{ $post->created_at->diffForHumans() }}
-                </p>
+        <x-hero-section />
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-2xl font-bold mb-6">Latest News</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                @foreach ($posts as $post)
+                    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                        <img src="https://placehold.co/800?font=roboto&text={{ $post['title'] }}" alt="News Image"
+                            class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold">{{ $post['title'] }}</h3>
+                            <p class="text-gray-600">{{ Str::limit($post['body'], 85, '...') }}</p>
+                            <a href="/article/{{ $post['slug'] }}" class="text-blue-500 hover:underline">Read more</a>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-            <p class="my-4 text-base">{{ Str::limit($post['body'], 100) }}</p>
-            <a href="/article/{{ $post['slug'] }}" class="text-sm text-blue-500 hover:underline">Read more &raquo;</a>
-        </article>
-        @endforeach --}}
-        <h1>Hai</h1>
+        </div>
+
     </main>
 </x-layout>
