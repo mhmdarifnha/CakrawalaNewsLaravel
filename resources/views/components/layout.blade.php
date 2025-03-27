@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- <title>{{ $title ?? ($slot ?? 'config(app.name)') }}</title> --}}
     {{-- <title>CakrawalaNews</title> --}}
-    <title>{{ $title ?? "CakrawalaNews" }}</title>
+    <title>{{ $title ?? 'CakrawalaNews' }}</title>
     <!-- Tambahkan CSS -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -39,8 +39,6 @@
                     class="hover:text-blue-300 hover:bg-opacity-45 duration-300 rounded-full px-2 py-1 transition-all ease-in">Beranda</a>
                 <a href="/article"
                     class="hover:text-blue-300 hover:bg-opacity-45 duration-300  rounded-full px-2 py-1 transition-all ease-in">Artikel</a>
-                <a href="/video"
-                    class="hover:text-blue-300 hover:bg-opacity-45 duration-300  rounded-full px-2 py-1 transition-all ease-in">Video</a>
                 <a href="/about"
                     class="hover:text-blue-300 hover:bg-opacity-45 duration-300  rounded-full px-2 py-1 transition-all ease-in">Tentang</a>
 
