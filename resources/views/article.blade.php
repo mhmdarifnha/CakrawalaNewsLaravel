@@ -10,7 +10,7 @@
                 | <p> Diposting pada: {{ $post->created_at->diffForHumans() }} </p>
             </div>
             <p class="my-4 text-base">{{ Str::limit($post['body'], 100) }}</p>
-            <a href="/article/{{ $post['slug'] }}" class="text-sm text-blue-500 hover:underline">Read more &raquo;</a>
+            <a href="/article/{{ $post['slug'] }}" class="text-sm text-blue-500 hover:underline">&laquo; Back</a>
         </article>
     @endforeach
 </x-layout>

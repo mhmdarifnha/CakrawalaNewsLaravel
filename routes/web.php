@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserPostController;
 use App\Models\Category;
 use App\Models\User;
 
@@ -37,11 +39,21 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard', ['title' => 'Dashboard']);
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', [UserPostController::class, 'index']);
+// Route::get('/dashboard', function () {
+//     return view('dashboard.index', ['title' => 'Dashboard']);
+// })->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard/articles', [UserPostController::class, 'show']);
 
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard.index', ['title' => 'Dashboard']);
+    })->name('dashboard');
+    Route::resource('/dashboard/articles', UserPostController::class);
+    // Route::get('/dashboard/articles', [UserPostController::class, 'index'])->name('dashboard.articles');
+    // Route::get('/dashboard/articles/{post}', [UserPostController::class, 'show'])->name('dashboard.articles.show');
+    // Route::get('/dashboard/article/{post}/edit', [UserPostController::class, 'edit'])->name('dashboard.articles.edit');
+    // Route::put('/dashboard/article/{post}', [UserPostController::class, 'store'])->name('dashboard.articles.store');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

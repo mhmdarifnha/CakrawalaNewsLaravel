@@ -13,6 +13,10 @@
                     {{ __("You're logged in!") }}
                 </div>
                 <div class="p-6">
+                    <a href="/dashboard/articles" class=" text-blue-500 hover:text-blue-600">Your
+                        Articles</a>
+                </div>
+                <div class="p-6">
                     <a href="/" class=" text-blue-500 hover:text-blue-600">Go Home</a>
                 </div>
             </div>
